@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宿舍報修系統原型</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>校園宿舍報修、派工與維修追蹤系統</h1>
+    <div class="role-switcher">
+      <button class="role-btn active" data-role="student">宿舍學生</button>
+      <button class="role-btn" data-role="manager">宿舍管理員</button>
+      <button class="role-btn" data-role="technician">維修人員</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel active" id="studentPanel">
+      <h2>學生報修提交</h2>
+      <form id="reportForm">
+        <label>宿舍區域
+          <select id="dorm" required>
+            <option value="">請選擇</option>
+            <option>男一舍</option>
+            <option>女二舍</option>
+            <option>學人宿舍</option>
+          </select>
+        </label>
+        <label>房號
+          <input id="room" type="text" placeholder="例如：B-204" required />
+        </label>
+        <label>設備類型
+          <select id="category" required>
+            <option value="">請選擇</option>
+            <option>冷氣</option>
+            <option>電燈</option>
+            <option>水龍頭</option>
+            <option>門鎖</option>
+          </select>
+        </label>
+        <label>問題描述
+          <textarea id="description" rows="4" required></textarea>
+        </label>
+        <button type="submit">送出報修</button>
+      </form>
+      <div id="studentResult" class="result-box"></div>
+    </section>
+
+    <section class="panel" id="managerPanel">
+      <h2>管理員待處理清單</h2>
+      <div id="managerList" class="list"></div>
+    </section>
+
+    <section class="panel" id="technicianPanel">
+      <h2>維修人員已派工清單</h2>
+      <div id="technicianList" class="list"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
